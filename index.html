@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="AngularBlogger">
+
 <head>
   <meta charset="UTF-8">
   <title>Angular Blogger</title>
@@ -7,7 +8,22 @@
   <script src="js/angularBlogger.js"></script>
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
-<body>
 
+<body ng-controller="BlogController as blogCtrl">
+  <div class="page-header">
+    <h1 class="text-capitalize text-center">Angular Blogger</h1>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4 text-center" ng-repeat="post in blogCtrl.posts">
+        <h3>Title: {{post.title}}</h3>
+        <p>Author: {{post.username}}</p>
+        <p>Description: {{post.description}}</p>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+  </div>
 </body>
+
 </html>
