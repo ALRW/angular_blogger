@@ -13,16 +13,42 @@
   <div class="page-header">
     <h1 class="text-capitalize text-center">Angular Blogger</h1>
   </div>
+
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-4"></div>
-      <div class="col-sm-4 text-center" ng-repeat="post in blogCtrl.posts">
-        <h3>Title: {{post.title}}</h3>
-        <p>Author: {{post.username}}</p>
-        <p>Description: {{post.description}}</p>
+    <div class="row" ng-repeat="post in blogCtrl.posts">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6 text-center">
+        <h3 class="publishedTitle">Title: {{post.title}}</h3>
+        <p class="publishedAuthor">Author: {{post.username}}</p>
+        <p class="publishedDescription">Description: {{post.description}}</p>
       </div>
-      <div class="col-sm-4"></div>
+      <div class="col-sm-3"></div>
     </div>
+
+<br>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <h3 class="text-center">Create a New Post</h3>
+          <form ng-submit="blogCtrl.addPost()" role="form">
+            <label for="title">Title:</label>
+            <input type="text" ng-model="blogCtrl.title" class="form-control"></input>
+            <label for="description">Description:</label>
+            <input type="text" ng-model="blogCtrl.description" class="form-control"></input>
+            <label for="contents">Contents: </label>
+            <textarea type="text" rows="6" ng-model="blogCtrl.content" class="form-control"></textarea>
+            <button type="submit" class="form-control">Post</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+
+
+
+
   </div>
 </body>
 
