@@ -1,7 +1,7 @@
 describe('AngularBlogger', function() {
 
   it('has a title', function() {
-    browser.get('http://localhost:8080/#/home');
+    browser.get('http://localhost:3000/#/home');
     expect(browser.getTitle()).toEqual('Angular Blogger');
   });
 
@@ -19,7 +19,7 @@ describe('AngularBlogger', function() {
     element(by.css('textarea')).sendKeys('This is a really great Post');
     element(by.css('button')).click();
     element.all(by.css('a')).first().click();
-    expect(browser.getCurrentUrl()).toBe('http://localhost:8080/#/home');
+    expect(browser.getCurrentUrl()).toBe('http://localhost:3000/#/home');
     expect(element.all(by.css('.publishedTitle')).get(1).getText()).toEqual('Title: Great Post');
     expect(element.all(by.css('.publishedDescription')).get(1).getText()).toEqual('Description: This is a great Post');
   });
@@ -30,6 +30,5 @@ describe('AngularBlogger', function() {
     element(by.css('button')).click();
     expect(element(by.css('h4')).getText()).toBe("One or more fields are blank. Please Complete your post before submitting.");
   });
-
 
 });
