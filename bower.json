@@ -1,0 +1,26 @@
+{
+  "name": "angular_blogger",
+  "homepage": "https://github.com/ALRW/angular_blogger",
+  "authors": [
+    "ALRW <awerner1@googlemail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0",
+    "bootstrap": "~3.3.6"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.0",
+    "angular-route": "~1.5.0"
+  }
+}
