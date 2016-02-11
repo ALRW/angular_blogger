@@ -5,6 +5,10 @@ __This Project is in development__
 
 A new blogging site built with the MEAN stack.
 
+Continuous Integration
+---------------------
+- Master: ![Master](https://travis-ci.org/ALRW/angular_blogger.svg?branch=master)
+
 Completed Features
 -------------------
 
