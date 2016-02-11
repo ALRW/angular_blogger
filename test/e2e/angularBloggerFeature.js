@@ -11,5 +11,7 @@ describe('AngularBlogger', function() {
     expect(element.all(by.css(".publishedDescription")).first().getText()).toEqual("Description: A very new post");
   });
 
+  
+
 
 });

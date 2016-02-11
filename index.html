@@ -9,15 +9,35 @@
   <script src="js/angularBlogger.js"></script>
   <script src="js/blogController.js"></script>
   <script src="js/postFactory.js"></script>
+  <script src="js/newPostController.js"></script>
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
 
-<body ng-controller="BlogController as blogCtrl">
-  <div class="page-header">
-    <h1 class="text-capitalize text-center">Angular Blogger</h1>
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Angular Blogger</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href='#/new'>New Post</a></li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </nav>
   </div>
 
   <div class="container-fluid">
+
+  <ui-view></ui-view>
+
+  <script type="text/ng-template" id="/home.html">
     <div class="row" ng-repeat="post in blogCtrl.posts">
       <div class="col-sm-3"></div>
       <div class="col-sm-6 text-center">
@@ -27,30 +47,32 @@
       </div>
       <div class="col-sm-3"></div>
     </div>
+  </script>
 
-<br>
-
+  <script type="text/ng-template" id="/new.html">
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <div class="form-group">
           <h3 class="text-center">Create a New Post</h3>
-          <h4 class="bg-danger text-center" ng-show="blogCtrl.warning">{{blogCtrl.warning}}</h4>
-          <form ng-submit="blogCtrl.addPost()" role="form">
+          <h4 class="bg-danger text-center" ng-show="newPostCtrl.warning">{{blogCtrl.warning}}</h4>
+          <form ng-submit="newPostCtrl.addPost()" role="form">
             <label for="title">Title:</label>
-            <input type="text" ng-model="blogCtrl.title" class="form-control"></input>
+            <input type="text" ng-model="newPostCtrl.title" class="form-control"></input>
             <label for="description">Description:</label>
-            <input type="text" ng-model="blogCtrl.description" class="form-control"></input>
+            <input type="text" ng-model="newPostCtrl.description" class="form-control"></input>
             <label for="contents">Contents: </label>
-            <textarea type="text" rows="6" ng-model="blogCtrl.content" class="form-control"></textarea>
+            <textarea type="text" rows="15" ng-model="newPostCtrl.content" class="form-control"></textarea>
             <button type="submit" class="form-control">Post</button>
           </form>
         </div>
       </div>
       <div class="col-md-3"></div>
     </div>
+  </script>
 
   </div>
+
 </body>
 
 </html>
