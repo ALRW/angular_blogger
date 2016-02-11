@@ -10,6 +10,7 @@
   <script src="js/blogController.js"></script>
   <script src="js/postFactory.js"></script>
   <script src="js/newPostController.js"></script>
+  <script src="js/postsController.js"></script>
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
 
@@ -36,12 +37,12 @@
   <div class="container-fluid">
 
   <ui-view></ui-view>
-
+</a>
   <script type="text/ng-template" id="/home.html">
     <div class="row" ng-repeat="post in blogCtrl.posts">
       <div class="col-sm-3"></div>
       <div class="col-sm-6 text-center">
-        <h3 class="publishedTitle">Title: {{post.title}}</h3>
+        <h3 class="publishedTitle"><a href="#/posts/{{$index}}">Title: {{post.title}}</a></h3>
         <p class="publishedAuthor">Author: {{post.username}}</p>
         <p class="publishedDescription">Description: {{post.description}}</p>
       </div>
@@ -53,9 +54,11 @@
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
+      <div class="page-header">
+      <h3 class="text-center">Create a New Post</h3>
+      </div>
         <div class="form-group">
-          <h3 class="text-center">Create a New Post</h3>
-          <h4 class="bg-danger text-center" ng-show="newPostCtrl.warning">{{blogCtrl.warning}}</h4>
+        <h4 class="bg-danger text-center" ng-show="newPostCtrl.warning">{{newPostCtrl.warning}}</h4>
           <form ng-submit="newPostCtrl.addPost()" role="form">
             <label for="title">Title:</label>
             <input type="text" ng-model="newPostCtrl.title" class="form-control"></input>
@@ -70,7 +73,19 @@
       <div class="col-md-3"></div>
     </div>
   </script>
-
+<script type="text/ng-template" id="/posts.html">
+  <div class="row">
+    <div class="page-header">
+      <h3 class="text-center">{{postsCtrl.post.title}}</h3>
+      <p class="text-center">Author: {{postsCtrl.post.username}}</p>
+    </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <p>{{postsCtrl.post.content}}</p>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</script>
   </div>
 
 </body>

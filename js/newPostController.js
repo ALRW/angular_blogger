@@ -3,7 +3,6 @@ angularBlogger.controller('NewPostController', ['posts', function(posts) {
   self.posts = posts.posts;
 
   self.addPost = function() {
-    self.warning = '';
 
     var newPost = {
       "title": self.title,
@@ -11,13 +10,18 @@ angularBlogger.controller('NewPostController', ['posts', function(posts) {
       "username": "User1",
       "content": self.content
     };
-
     if (!self.content || !self.description || !self.title) {
       self.warning = "One or more fields are blank. Please Complete your post before submitting.";
       return;
     }
-
     self.posts.push(newPost);
+    resetFields();
+  };
 
+  var resetFields = function(){
+    self.warning = '';
+    self.title = '';
+    self.description = '';
+    self.content = '';
   };
 }]);
