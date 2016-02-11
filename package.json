@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "test": "karma start test/karma.conf.js",
     "start": "node ./bin/www"
   },
   "dependencies": {
@@ -13,8 +14,7 @@
     "express": "~4.13.1",
     "mongoose": "^4.4.3",
     "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0",
-    "http-server": "^0.8.5"
+    "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
     "jasmine-core": "^2.4.1",
