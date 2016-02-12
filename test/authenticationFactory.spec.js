@@ -42,5 +42,4 @@ describe('authentication', function(){
     expect($window.localStorage.removeItem).toHaveBeenCalledWith('angular-blogger-token');
   });
 
-
 });
