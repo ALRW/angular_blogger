@@ -5,13 +5,16 @@ describe('NewPostController', function(){
       "username": "User1",
       "content": "Lorem ipsum dolor sit amet"
   };
+  var posts = {
+    create: function(newPost){}
+  };
   beforeEach(function(){
     module('AngularBlogger');
     module('ui.router');
   });
 
-  beforeEach(inject(function($controller){
-    ctrl = $controller('NewPostController');
+  beforeEach(inject(function($controller, posts){
+    ctrl = $controller('NewPostController', {posts:posts});
   }));
 
   it("has access to posts", function(){
@@ -23,11 +26,13 @@ describe('NewPostController', function(){
     expect(ctrl.warning).toEqual("One or more fields are blank. Please Complete your post before submitting.");
   });
 
-  it('can add new posts', function(){
+  it('resets fields after being called', function(){
     ctrl.title = "My new post";
     ctrl.description = "A very new post";
     ctrl.content = "Lorem ipsum dolor sit amet";
     ctrl.addPost();
-    expect(ctrl.posts[1]).toEqual(mockPost);
+    expect(ctrl.title).toBe('');
+    expect(ctrl.description).toBe('');
+    expect(ctrl.content).toBe('');
   });
 });

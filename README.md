@@ -17,11 +17,12 @@ Completed Features
 - Create New Posts
 - See a list of posts on the homepage
 - be able to access individual posts through the homepage
+- implement persistent storage of app data
+
 
 Features in Progress
 --------------------
 
-- implement persistent storage of app data
 - implement user authentication and accounts
 - restrict uploading new posts to an authenticated user
 - Create an api end point for all posts

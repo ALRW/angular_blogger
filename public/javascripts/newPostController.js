@@ -14,7 +14,7 @@ angularBlogger.controller('NewPostController', ['posts', function(posts) {
       self.warning = "One or more fields are blank. Please Complete your post before submitting.";
       return;
     }
-    self.posts.push(newPost);
+    posts.create(newPost);
     resetFields();
   };
 
