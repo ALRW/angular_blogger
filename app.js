@@ -12,6 +12,7 @@ var mongoose = require('mongoose');
 
 require('./models/Posts');
 require('./models/Users');
+require('./config/passport.js');
 
 mongoose.connect('mongodb://localhost/posts');
 
@@ -34,7 +35,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(passport.initialize());
 app.use('/', routes);
 app.use('/users', users);
 

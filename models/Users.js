@@ -29,7 +29,7 @@ UserSchema.methods.generateJWT = function(){
     username: this.username,
     email: this.email,
     exp: parseInt(exp.getTime() / 1000),
-    // remove and set to ENV variable when moving to production
+    // remove SECRET and set to ENV variable when moving to production
   }, 'SECRET');
 
 };
