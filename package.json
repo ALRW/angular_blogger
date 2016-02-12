@@ -19,6 +19,7 @@
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-concurrent": "^2.1.0",
+    "grunt-mongo-drop-task": "^0.1.0",
     "grunt-nodemon": "^0.4.1",
     "grunt-shell-spawn": "^0.3.10",
     "jasmine-core": "^2.4.1",
