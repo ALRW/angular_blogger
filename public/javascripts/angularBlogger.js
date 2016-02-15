@@ -24,6 +24,26 @@ angularBlogger.config([
         url: '/posts/{id}',
         templateUrl: '/posts.html',
         controller: 'PostsController as postsCtrl'
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: '/login.html',
+        controller: 'AuthController as authCtrl',
+        onEnter: ['$state', 'auth', function($state, auth) {
+          if (auth.isLoggedIn()) {
+            $state.go('home');
+          }
+        }]
+      })
+      .state('register', {
+        url: '/register',
+        templateUrl: '/register.html',
+        controller: 'AuthController as authCtrl',
+        onEnter: ['$state', 'auth', function($state, auth) {
+          if (auth.isLoggedIn()) {
+            $state.go('home');
+          }
+        }]
       });
 
     $urlRouterProvider.otherwise('home');

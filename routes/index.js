@@ -2,12 +2,15 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var passport = require('passport');
-var User = mongoose.model('User');
-var Post = mongoose.model('Post');
+require('../models/Posts');
+require('../models/Users');
+
 var jwt = require('express-jwt');
 // replace SECRET with ENV variable when moving to production
 var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
 
+var Post = mongoose.model('Post');
+var User = mongoose.model('User');
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
