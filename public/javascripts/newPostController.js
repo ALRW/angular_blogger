@@ -1,6 +1,7 @@
-angularBlogger.controller('NewPostController', ['posts', function(posts) {
+angularBlogger.controller('NewPostController', ['posts','auth', function(posts, auth) {
   var self = this;
   self.posts = posts.posts;
+  self.isLoggedIn = auth.isLoggedIn;
 
   self.addPost = function() {
 

@@ -1,17 +1,21 @@
-angularBlogger.factory('posts', ['$http', function($http){
+angularBlogger.factory('posts', ['$http', 'auth', function($http, auth) {
   var o = {
     posts: []
   };
 
-  o.getAll = function(){
+  o.getAll = function() {
     return $http.get('/posts')
-    .success(function(data){
-      angular.copy(data, o.posts);
-    });
+      .success(function(data) {
+        angular.copy(data, o.posts);
+      });
   };
 
   o.create = function(post) {
-    return $http.post('/posts', post).success(function(data){
+    return $http.post('/posts', post, {
+      headers: {
+        Authorization: 'Bearer ' + auth.getToken()
+      }
+    }).success(function(data) {
       o.posts.push(data);
     });
   };

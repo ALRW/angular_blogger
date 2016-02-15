@@ -34,7 +34,7 @@ router.post('/posts',auth, function(req, res, next){
 
 router.post('/register', function(req, res, next){
   if(!req.body.username || !req.body.password || !req.body.email){
-    return res.status(400).json({message: "Please Fill out all the field"});
+    return res.status(400).json({message: "Please Fill out all the required fields."});
   }
 
   var user = new User();
@@ -51,7 +51,7 @@ router.post('/register', function(req, res, next){
 
 router.post('/login', function(req, res, next){
   if(!req.body.username || !req.body.password){
-    return res.status(400).json({message: 'Please fill out all fields'});
+    return res.status(400).json({message: 'Please fill out all the required fields.'});
   }
 
   passport.authenticate('local', function(err, user, info){
